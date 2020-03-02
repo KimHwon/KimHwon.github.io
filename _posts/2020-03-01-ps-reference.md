@@ -10,19 +10,19 @@ tags:
 # Headers
 ### bit/stdc++.h
 
-```C++
+```cpp
 #include <bit/stdc++.h>
 ```
 <details>
 <summary>코드 보기</summary>
 <div markdown="1">
 
-```C++
-// C++ includes used for precompiling -*- C++ -*-
+```cpp
+// cpp includes used for precompiling -*- cpp -*-
  
 // Copyright (C) 2003-2013 Free Software Foundation, Inc.
 //
-// This file is part of the GNU ISO C++ Library.  This library is free
+// This file is part of the GNU ISO cpp Library.  This library is free
 // software; you can redistribute it and/or modify it under the
 // terms of the GNU General Public License as published by the
 // Free Software Foundation; either version 3, or (at your option)
@@ -80,7 +80,7 @@ tags:
 #include <cwctype>
 #endif
  
-// C++
+// cpp
 #include <algorithm>
 #include <bitset>
 #include <complex>
@@ -142,7 +142,7 @@ tags:
 
 
 ### ios
-```C++
+```cpp
 #include <ios>
 #import <ios>
 ```
@@ -153,14 +153,14 @@ tags:
 ## 원소를 수정하는 함수
 ### sort
 
-```C++
+```cpp
 #include <algorithm>
 void sort(begin, end, [comparator]);
 ```
 * 컨테이너 오름차순 정렬.
 * O(NlogN)
 
-```C++
+```cpp
 sort(vec.begin(), vec.end(), [](const &T a, const &T b){
     return a < b;
 });
@@ -168,13 +168,13 @@ sort(vec.begin(), vec.end(), [](const &T a, const &T b){
 * 람다식을 이용한 사용자 정의 Comparator 사용.
 * *`comp(a, b) == comp(b, a)`이면 에러 발생, a == b일때는 임의의 순서 배정 필요*
 
-```C++
+```cpp
 #include <functional>
 sort(vec.begin(), vec.end(), greater<T>());
 ```
 fuctional 헤더의 greater Comparator를 사용해 **내림차순 정렬**.
 
-```C++
+```cpp
 bool operator< (const &T a, const &T b) {
     return a < b;
 }
@@ -187,21 +187,21 @@ sort(vec.begin(), vec.end());
 
 ### reverse
 
-```C++
+```cpp
 #include <algorithm>
 void reverse(begin, end);
 ```
 * 컨테이너의 순서 역전
 * O(N)
 
-```C++(
+```cpp(
 reverse(vec.begin(), vec.end());
 ```
 
 
 ### unique
 
-```C++
+```cpp
 #include <algorithm>
 T *iter = unique(begin, end);
 ```
@@ -209,7 +209,7 @@ T *iter = unique(begin, end);
 * 정렬과 무관하게 연달아 나온 두 원소 중 하나를 제거.
 * O(N)
 
-```C++
+```cpp
 vec.erase(unique(vec.begin(), vec.end()), vec.end());
 ```
 * 컨테이너에서 중복 요소를 제거하고, 남은 쓰레기값을 삭제.
@@ -221,7 +221,7 @@ vec.erase(unique(vec.begin(), vec.end()), vec.end());
 
 ### fill, fill_n
 
-```C++
+```cpp
 #include <algorithm>
 void fill(begin, end, value);
 void fill_n(begin, size, value);
@@ -229,7 +229,7 @@ void fill_n(begin, size, value);
 * 컨테이너의 모든 값에 대입. **다차원 배열 불가능**
 * O(N)
 
-```C++
+```cpp
 fill(vec.begin(), vec.end(), 375);
 fill_n(vec.begin(), vec.size(), 375);
 ```
@@ -237,18 +237,18 @@ fill_n(vec.begin(), vec.size(), 375);
 
 ### memset
 
-```C++
+```cpp
 #include <cstring>
 void memset(begin, value, size);
 ```
 메* 모리에 값을 셋팅. **다차원 배열 가능**
 
-```C++
+```cpp
 memset(arr, 0, size(arr));
 ```
 * 배열의 모든 값을 0으로 맵핑. 
 
-```C++
+```cpp
 memset(arr, -1, size(arr));
 ```
 * 배열의 모든 값을 0(0xFF)으로 맵핑.
@@ -257,37 +257,37 @@ memset(arr, -1, size(arr));
 ## 탐색 관련 함수
 ### find (algorithm)
 
-```C++
+```cpp
 #include <algorithm>
 T *iter = find(begin, end, value);
 ```
 * 컨테이너 안에서 값을 찾고 그 이터레이터를 리턴. **없으면 last를 리턴**.
 * O(N)
 
-```C++
+```cpp
 int x = *find(vec.begin(), vec.end(), 523);
 ```
 
 
 ### find (string)
-```C++
+```cpp
 #include <string>
 size_t pos = str.find(value, [start]);
 ```
 * 문자열 안에서 값을 찾고 그 위치를 리턴. **없으면 string::npos(-1)를 리턴**.
 * O(N)
 
-```C++
+```cpp
 int p = str.find('a');
 ```
 * 단일 문자 `'a'`를 찾고 그 위치를 리턴.
 
-```C++
+```cpp
 int p = str.find("aa");
 ```
 * 문자열 `"aa"`를 찾고 그 위치를 리턴.
 
-```C++
+```cpp
 int p = str.find("aa", start);
 ```
 * start번째 문자부터 문자열 `"aa"`를 찾고 그 위치를 리턴.
@@ -295,7 +295,7 @@ int p = str.find("aa", start);
 
 ### binary_search
 
-```C++
+```cpp
 #include <algorithm>
 bool include = binary_search(begin, end, value, [comparator]);
 ```
@@ -303,7 +303,7 @@ bool include = binary_search(begin, end, value, [comparator]);
 * Comparator는 [`sort`](#sort)와 동일.
 * O(logN)
 
-```C++
+```cpp
 if (binary_search(vec.begin(), vec.end(), 618))
   cout << "Find!";
 ```
@@ -311,7 +311,7 @@ if (binary_search(vec.begin(), vec.end(), 618))
 
 ### lower_bound
 
-```C++
+```cpp
 #include <algorithm>
 T *iter = lower_bound(begin, end, value, [comparator]);
 ```
@@ -323,7 +323,7 @@ T *iter = lower_bound(begin, end, value, [comparator]);
 
 ### upper_bound
 
-```C++
+```cpp
 #include <algorithm>
 T *iter = upper_bound(begin, end, value, [comparator]);
 ```
@@ -335,7 +335,7 @@ T *iter = upper_bound(begin, end, value, [comparator]);
 
 ### equal_range
 
-```C++
+```cpp
 #include <algorithm>
 pair<T*, T*> iterPair = equal_range(begin, end, value, [comparator]);
 ```
@@ -344,7 +344,7 @@ pair<T*, T*> iterPair = equal_range(begin, end, value, [comparator]);
 * Comparator는 [`sort`](#sort)와 동일.
 * O(logN)
 
-```C++
+```cpp
 auto p = equal_range(vec.begin(), vec.end(), 762);
 cout << distance(p.first, p.second); // == (p.second - p.first)
 ```
@@ -354,7 +354,7 @@ cout << distance(p.first, p.second); // == (p.second - p.first)
 ## 수학 관련 함수
 ### min, max
 
-```C++
+```cpp
 #include <algorithm>
 T min(a, b, [comparator]);
 T min(init_list, [comparator]);
@@ -364,7 +364,7 @@ T max(init_list, [comparator]);
 * 매개변수의 최솟값이나 최댓값을 반환.
 * Comparator는 [`sort`](#sort)와 동일.
 
-```C++
+```cpp
 int mn = min({ 3, 4, 5 });
 int mx = max({ 3, 4, 5 });
 ```
@@ -373,7 +373,7 @@ int mx = max({ 3, 4, 5 });
 
 ### min&#95;element, max&#95;element
 
-```C++
+```cpp
 #include <algorithm>
 T *iter = min_element(a, b, [comparator]);
 T *iter = min_element(init_list, [comparator]);
@@ -383,7 +383,7 @@ T *iter = max_element(init_list, [comparator]);
 * 매개변수의 최솟값이나 최댓값의 이터레이터를 반환.
 * Comparator는 [`sort`](#sort)와 동일.
 
-```C++
+```cpp
 int mn = *min_element({ 3, 4, 5 });
 int mx = *max_element({ 3, 4, 5 });
 ```
@@ -392,7 +392,7 @@ int mx = *max_element({ 3, 4, 5 });
 
 ### ceil, round, floor
 
-```C++
+```cpp
 #include <cmath>
 T ceil(value);
 T round(value);
@@ -402,7 +402,7 @@ T floor(value);
 * `round`: value와 가장 가까운 정수로 반올림
 * `floor`: value보다 작은 가장 가까운 정수로 내림
 
-```C++
+```cpp
 int H = (int)ceil(log2(N));
 int tree_size = 1 << (H+1);
 ```
@@ -411,14 +411,14 @@ int tree_size = 1 << (H+1);
 
 ### next_permutation
 
-```C++
+```cpp
 #include <algorithm>
 bool next_permutation(begin, end, [comparator]);
 ```
 * 컨테이너 순열의 다음 번째 순열로 변환, 더 이상 진행할 수 없으면(내림차순 순열이면) `false` 반환.
 * Comparator는 [`sort`](#sort)와 동일.
 
-```C++
+```cpp
 do {
   // ...
 } while (next_permutation(vec.begin(), vec.end()));
@@ -427,14 +427,14 @@ do {
 
 ### prev_permutation
 
-```C++
+```cpp
 #include <algorithm>
 bool prev_permutation(begin, end, [comparator]);
 ```
 * 컨테이너 순열의 이전 번째 순열로 변환, 더 이상 진행할 수 없으면(오름차순 순열이면) `false` 반환.
 * Comparator는 [`sort`](#sort)와 동일.
 
-```C++
+```cpp
 do {
   // ...
 } while (prev_permutation(vec.begin(), vec.end()));
@@ -443,7 +443,7 @@ do {
 
 ### &#95;&#95;builtin&#95;popcount
 
-```C++
+```cpp
 unsigned int __builtin_popcount(uint32 value);
 ```
 * 32bit unsigned int에 대하여, 1인 bit의 수를 반환.
@@ -455,3 +455,10 @@ unsigned int __builtin_popcount(uint32 value);
 [마크다운으로 주석 처리 가능](http://www.secmem.org/blog/2019/10/19/handy-function-about-bit/)
 [비트마스크 사용법](https://sunnyholic.com/88)
 -->
+
+
+---
+
+References
+* http://www.cplusplus.com/
+* https://en.cppreference.com/
