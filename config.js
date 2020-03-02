@@ -1,7 +1,7 @@
 module.exports = {
   /** Site MetaData (Required all)*/
   title: `Hwon's Blog`,                           // (* Required)
-  description: `Here is Hwon's Blog. `,          // (* Required)
+  description: `My study about SW develop & memory architecture.`,          // (* Required)
   author: `Hyowon Kim`,                         // (* Required)
   siteUrl: 'https://kimhwon.github.io',                      // (* Required)
     // ex.'https://junhobaik.github.io'
@@ -13,7 +13,7 @@ module.exports = {
     // If the file does not exist, it is replaced by a random image.
 
   /** Home > Bio information*/
-  comment: 'Jr. Web Developer & Memory Architecture Researcher',
+  comment: 'A student who wants to be a developer.',
   name: 'Hyowon Kim',
   company: '',
   location: 'Korea',
