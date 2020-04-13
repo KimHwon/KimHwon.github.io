@@ -420,6 +420,7 @@ int tree_size = 1 << (H+1);
 bool next_permutation(begin, end, [comparator]);
 ```
 * 컨테이너 순열의 다음 번째 순열로 변환, 더 이상 진행할 수 없으면(내림차순 순열이면) `false` 반환.
+* 2종류의 원소만 사용한 배열을 사용하면 조합을 구할 수도 있다.
 * Comparator는 [`sort`](#sort)와 동일.
 
 ```cpp
@@ -427,6 +428,20 @@ do {
   // ...
 } while (next_permutation(vec.begin(), vec.end()));
 ```
+
+```cpp
+// 5C2 구하기
+vector<int> vec(5);
+vector<bool> filter = { false, false, false, true, true };
+do {
+  for (int i = 0; i < 5; ++i) {
+    if (filter[i]) {
+      // vec[i] is selected.
+    }
+  }
+} while (next_permutation(filter.begin(), filter.end()));
+```
+중복되는 원소를 가진 `filter`의 순열을 구하고, 여기에 대응되는 `vec`의 원소를 선택해서 중복을 허용한다.
 
 
 ### prev_permutation
@@ -436,6 +451,7 @@ do {
 bool prev_permutation(begin, end, [comparator]);
 ```
 * 컨테이너 순열의 이전 번째 순열로 변환, 더 이상 진행할 수 없으면(오름차순 순열이면) `false` 반환.
+* 2종류의 원소만 사용한 배열을 사용하면 조합을 구할 수도 있다.
 * Comparator는 [`sort`](#sort)와 동일.
 
 ```cpp
@@ -443,6 +459,20 @@ do {
   // ...
 } while (prev_permutation(vec.begin(), vec.end()));
 ```
+
+```cpp
+// 5C2 구하기
+vector<int> vec(5);
+vector<bool> filter = { false, false, false, true, true };
+do {
+  for (int i = 0; i < 5; ++i) {
+    if (filter[i]) {
+      // vec[i] is selected.
+    }
+  }
+} while (prev_permutation(filter.begin(), filter.end()));
+```
+중복되는 원소를 가진 `filter`의 순열을 구하고, 여기에 대응되는 `vec`의 원소를 선택해서 중복을 허용한다.
 
 
 ### &#95;&#95;builtin&#95;popcount
