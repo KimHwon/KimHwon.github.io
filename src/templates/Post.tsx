@@ -106,7 +106,7 @@ const Post = (props: postProps) => {
   const mapTags = tags.map((tag: string) => {
     return (
       <li key={tag} className="blog-post-tag">
-        <Link to={`/tag/${tag}`}>{`#${tag}`}</Link>
+        <Link to={`/tags#${tag}`}>{`#${tag}`}</Link>
       </li>
     );
   });
