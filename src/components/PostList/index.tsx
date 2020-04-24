@@ -23,7 +23,7 @@ const PostList = memo((props: PostListProps) => {
       return (
         <li key={`${slug}-${tag}`} className="tag">
           <span>
-            <Link to={`/tags#${tag}`}>{`#${tag}`}</Link>
+            <Link to={`/tags/#${tag}`}>{`#${tag}`}</Link>
           </span>
         </li>
       );
