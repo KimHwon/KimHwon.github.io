@@ -47,7 +47,7 @@ sudo apt install --install-recommends winehq-stable
 혹시 모를 호환성 이슈를 막기 위해 32bit 프로그램만 실행하도록 설정하고 설정파일의 경로를 지정합니다.
 ```bash
 mkdir ~/.wine
-WINEARCH=win32 WINEPREFIX=~/.wine winecfg
+WINEARCH=win32 WINEPREFIX=~/.wine LANG="ko_KR.UTF-8" winecfg
 ```
 
 **Wine 설정** 윈도우가 열립니다. 상황에 맞게 적절한 옵션을 설정합니다. <br>
@@ -78,7 +78,7 @@ wine KakaoTalk_Setup.exe
 ```bash
 sudo apt install gnome-shell-extension-top-icons-plus
 ```
-설치가 끝난 후, **기능 개선** 앱에서 확장 탭을 열고 **Topions plus**를 활성화합니다.
+설치가 끝난 후, **기능 개선** 앱에서 확장 탭을 열고 **Topicons plus**를 활성화합니다.
 
 ---
 
